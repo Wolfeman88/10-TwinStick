@@ -6,14 +6,9 @@ public class Player : MonoBehaviour {
 
 	private float H, V;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
-	void Update () {
-
+	void Update () 
+	{
 		H = CrossPlatformInputManager.GetAxis ("Horizontal"); 
 		V = CrossPlatformInputManager.GetAxis ("Vertical");
 
