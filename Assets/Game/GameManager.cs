@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//bIsRecording = !CrossPlatformInputManager.GetButton ("Fire1");
-		Debug.Log (bIsRecording.ToString ());
+		//Debug.Log (bIsRecording.ToString ());
 	}
 
 	public void ToggleRecordingState ()

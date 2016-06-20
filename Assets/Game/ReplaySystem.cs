@@ -9,6 +9,8 @@ public class ReplaySystem : MonoBehaviour {
 	private Rigidbody rigidBody;
 	private GameManager gameManager;
 
+	private int internalCount = 0;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -35,7 +37,7 @@ public class ReplaySystem : MonoBehaviour {
 		int frame = Time.frameCount % bufferSize;
 		float time = Time.time;
 
-		Debug.Log ("Writing frame " + frame);
+		//Debug.Log ("Writing frame " + frame);
 
 		keyFrames [frame] = new MyKeyFrame (time, transform.position, transform.rotation);
 	}
@@ -45,10 +47,13 @@ public class ReplaySystem : MonoBehaviour {
 		rigidBody.isKinematic = true;
 		int frame = Time.frameCount % bufferSize;
 
-		Debug.Log ("Reading frame " + frame);
+		//Debug.Log ("Reading frame " + frame);
 
-		transform.position = keyFrames [frame].fPosition_OfObjectAtTimeOfOccurrence;
-		transform.rotation = keyFrames [frame].fRotation_OfObjectAtTimeOfOccurrence;
+		if (keyFrames [frame] != null)
+		{
+			transform.position = keyFrames [frame].fPosition_OfObjectAtTimeOfOccurrence;
+			transform.rotation = keyFrames [frame].fRotation_OfObjectAtTimeOfOccurrence;
+		}
 	}
 }
 
